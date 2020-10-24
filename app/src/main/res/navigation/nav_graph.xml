@@ -12,8 +12,24 @@
         tools:layout="@layout/fragment_task_list">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/action_TaskListFragment_to_AddTaskFragment"
             app:destination="@id/AddTaskFragment" />
+        <action
+            android:id="@+id/action_TaskListFragment_to_LoginFragment"
+            app:destination="@id/LoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.honnalmanja.androidkotlinmvvm.LoginFragment"
+        android:label="@string/task_login_label"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_LoginFragment_to_AddTaskFragment"
+            app:destination="@id/TaskListFragment"/>
+        <action
+            android:id="@+id/action_LoginFragment_to_SignUpFragment"
+            app:destination="@id/SignUpFragment"/>
     </fragment>
     <fragment
         android:id="@+id/AddTaskFragment"
@@ -22,7 +38,19 @@
         tools:layout="@layout/fragment_task_add">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/action_AddTaskFragment_to_TaskListFragment"
             app:destination="@id/TaskListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/SignUpFragment"
+        android:name="com.honnalmanja.androidkotlinmvvm.SignUpFragment"
+        android:label="@string/login_sign_up_label"
+        tools:layout="@layout/fragment_sign_up">
+
+        <action
+            android:id="@+id/action_SignUpFragment_to_LoginFragment"
+            app:destination="@id/LoginFragment"/>
+
+    </fragment>
+
 </navigation>

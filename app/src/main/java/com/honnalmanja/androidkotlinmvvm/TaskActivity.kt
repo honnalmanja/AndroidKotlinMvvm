@@ -1,20 +1,29 @@
 package com.honnalmanja.androidkotlinmvvm
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
+import androidx.databinding.DataBindingUtil
+import com.honnalmanja.androidkotlinmvvm.databinding.ActivityTaskBinding
+
 
 class TaskActivity : AppCompatActivity() {
 
+    lateinit var binding: ActivityTaskBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_task)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_task)
+        setSupportActionBar(binding.toolbar)
 
+    }
 
+    fun hideTaskBar() {
+        binding.toolbar.isVisible = false
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

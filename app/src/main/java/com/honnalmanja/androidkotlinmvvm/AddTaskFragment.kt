@@ -7,26 +7,39 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.widget.AppCompatButton
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.honnalmanja.androidkotlinmvvm.databinding.FragmentTaskAddBinding
 
 
 class AddTaskFragment : Fragment() {
+
+    lateinit var binding: FragmentTaskAddBinding
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            AddTaskFragment().apply {
+                arguments = Bundle().apply {
+
+                }
+            }
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_task_add, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_task_add, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<AppCompatButton>(R.id.add_task_btn).setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+        binding.addTaskBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_AddTaskFragment_to_TaskListFragment)
         }
 
 
