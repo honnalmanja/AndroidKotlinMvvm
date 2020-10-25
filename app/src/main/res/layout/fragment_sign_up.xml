@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="15dp"
-        tools:context=".SignUpFragment">
+        tools:context=".view.user.SignUpFragment">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/sign_up_email_til"

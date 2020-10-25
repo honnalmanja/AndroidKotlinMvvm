@@ -9,7 +9,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:orientation="vertical"
-        tools:context=".TaskListFragment">
+        tools:context=".view.task.TaskListFragment">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"

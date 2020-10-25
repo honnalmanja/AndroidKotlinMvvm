@@ -1,13 +1,12 @@
-package com.honnalmanja.androidkotlinmvvm
+package com.honnalmanja.androidkotlinmvvm.view.task
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import com.honnalmanja.androidkotlinmvvm.R
 import com.honnalmanja.androidkotlinmvvm.databinding.ActivityTaskBinding
 
 
@@ -17,7 +16,7 @@ class TaskActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_task)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_task)
         setSupportActionBar(binding.toolbar)
 
     }
