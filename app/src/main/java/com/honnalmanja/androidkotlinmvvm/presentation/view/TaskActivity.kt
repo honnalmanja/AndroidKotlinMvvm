@@ -1,4 +1,4 @@
-package com.honnalmanja.androidkotlinmvvm.view.task
+package com.honnalmanja.androidkotlinmvvm.presentation.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

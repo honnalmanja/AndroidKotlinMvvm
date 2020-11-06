@@ -1,4 +1,4 @@
-package com.honnalmanja.androidkotlinmvvm.view.user
+package com.honnalmanja.androidkotlinmvvm.presentation.view.user
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

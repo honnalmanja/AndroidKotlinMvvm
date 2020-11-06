@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+    <data>
+        <variable
+            name="login"
+            type="com.honnalmanja.androidkotlinmvvm.presentation.viewModel.LoginViewModel" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/loginHolderLLc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".view.user.LoginFragment">
+        tools:context=".presentation.view.user.LoginFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

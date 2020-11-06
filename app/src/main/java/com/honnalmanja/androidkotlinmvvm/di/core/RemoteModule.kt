@@ -1,6 +1,6 @@
-package com.honnalmanja.androidkotlinmvvm.di
+package com.honnalmanja.androidkotlinmvvm.di.core
 
-import com.honnalmanja.androidkotlinmvvm.model.remote.Services
+import com.honnalmanja.androidkotlinmvvm.data.api.TMServices
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -12,10 +12,10 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-class RetrofitModule {
+class RemoteModule(private val BASE_URL: String) {
 
-    private val BASE_URL = "http://192.168.0.4:3000";
-
+    @Singleton
+    @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit{
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -42,8 +42,8 @@ class RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideServices(retrofit: Retrofit): Services {
-        return retrofit.create(Services::class.java)
+    fun provideServices(retrofit: Retrofit): TMServices {
+        return retrofit.create(TMServices::class.java)
     }
 
 }

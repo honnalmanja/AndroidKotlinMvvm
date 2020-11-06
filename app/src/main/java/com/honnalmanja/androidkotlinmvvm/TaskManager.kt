@@ -1,31 +1,31 @@
 package com.honnalmanja.androidkotlinmvvm
 
 import android.app.Application
-import com.honnalmanja.androidkotlinmvvm.di.*
+import com.honnalmanja.androidkotlinmvvm.di.Injector
+import com.honnalmanja.androidkotlinmvvm.di.core.*
+import com.honnalmanja.androidkotlinmvvm.di.task.TaskSubComponent
+import com.honnalmanja.androidkotlinmvvm.di.user.UserSubComponent
 
-class TaskManager : Application() {
+class TaskManager : Application(), Injector {
 
-    companion object {
-        private lateinit var app: TaskManager
-        private lateinit var appComponent: AppComponent
-
-        fun getApp():TaskManager {
-            return app
-        }
-    }
+    private lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
-        app = this
 
         appComponent = DaggerAppComponent.builder()
-            .applicationModule(ApplicationModule(this))
-            .preferenceModule(PreferenceModule())
-            .retrofitModule(RetrofitModule())
+            .appModule(AppModule(applicationContext))
+            .remoteModule(RemoteModule(BuildConfig.BASE_URL))
             .build()
     }
 
-    fun getAppComponent(): AppComponent {
-        return appComponent
+    override fun createUserSubComponent(): UserSubComponent {
+        return appComponent.userSubComponent().create()
     }
+
+    override fun createTaskSubComponent(): TaskSubComponent {
+        return appComponent.taskSubComponent().create()
+    }
+
+
 }

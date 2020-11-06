@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:layout_margin="5dp"
         android:orientation="vertical"
-        tools:context=".view.task.AddTaskFragment">
+        tools:context=".presentation.view.task.AddTaskFragment">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
