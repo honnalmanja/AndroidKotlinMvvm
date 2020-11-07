@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.honnalmanja.androidkotlinmvvm.R
 import com.honnalmanja.androidkotlinmvvm.databinding.FragmentSignUpBinding
+import com.honnalmanja.androidkotlinmvvm.presentation.view.TaskActivity
 
 class SignUpFragment : Fragment() {
 
@@ -26,6 +27,13 @@ class SignUpFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as TaskActivity).toggleTaskBar()
+        (activity as TaskActivity).pageTitle(getString(R.string.sign_up_title))
+
     }
 
     companion object {

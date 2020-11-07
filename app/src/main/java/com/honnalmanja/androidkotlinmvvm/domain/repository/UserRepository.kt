@@ -1,8 +1,8 @@
 package com.honnalmanja.androidkotlinmvvm.domain.repository
 
 
-import com.honnalmanja.androidkotlinmvvm.data.model.CreateUserRequest
-import com.honnalmanja.androidkotlinmvvm.data.model.LoginUserRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.CreateUserRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.LoginUserRequest
 import com.honnalmanja.androidkotlinmvvm.data.UserLiveData
 
 interface UserRepository {

@@ -1,8 +1,8 @@
 package com.honnalmanja.androidkotlinmvvm.data.api
 
-import com.honnalmanja.androidkotlinmvvm.data.model.CreateUserRequest
-import com.honnalmanja.androidkotlinmvvm.data.model.LoginUserRequest
-import com.honnalmanja.androidkotlinmvvm.data.model.UserResponse
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.CreateUserRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.LoginUserRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.UserResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Header

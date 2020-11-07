@@ -21,8 +21,12 @@ class TaskActivity : AppCompatActivity() {
 
     }
 
-    fun hideTaskBar() {
-        binding.toolbar.isVisible = false
+    fun pageTitle(title: String = getString(R.string.app_name)){
+        supportActionBar?.title = title
+    }
+
+    fun toggleTaskBar(hide: Boolean = false) {
+        binding.toolbar.isVisible = !hide
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

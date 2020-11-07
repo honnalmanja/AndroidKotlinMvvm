@@ -1,6 +1,6 @@
 package com.honnalmanja.androidkotlinmvvm.data
 
-import com.honnalmanja.androidkotlinmvvm.data.model.User
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.User
 
 class UserLiveData(
     var statusCode: Int?,
