@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+   <data>
+       <variable
+           name="signUp"
+           type="com.honnalmanja.androidkotlinmvvm.presentation.viewModel.SignUpViewModel" />
+   </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/sign_up_holder_llc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -19,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_email_hint"
+                android:text="@={signUp.email}"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
                 android:marqueeRepeatLimit="marquee_forever"
@@ -35,7 +44,8 @@
                 android:id="@+id/sign_up_name_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/login_name_hint"
+                android:hint="@string/sign_up_name_hint"
+                android:text="@={signUp.name}"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
                 android:marqueeRepeatLimit="marquee_forever"
@@ -47,13 +57,15 @@
             android:id="@+id/sign_up_password_til"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="15dp"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/sign_up_password_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_password_hint"
+                android:text="@={signUp.password}"
                 android:imeOptions="actionGo"
                 android:inputType="textPassword"
                 android:marqueeRepeatLimit="marquee_forever"
@@ -65,14 +77,16 @@
             android:id="@+id/sign_up_confirm_password_til"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="15dp"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/sign_up_confirm_password_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_confirm_password_hint"
-                android:imeOptions="actionGo"
+                android:text="@={signUp.confirmPassword}"
+                android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:singleLine="true" />
@@ -84,7 +98,8 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_sign_up_text" />
+            android:text="@string/login_sign_up_text"
+            android:onClick="@{()->signUp.validateFields(signUp.email, signUp.name, signUp.password, signUp.confirmPassword)}"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

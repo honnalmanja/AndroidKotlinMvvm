@@ -5,16 +5,16 @@ import com.google.gson.annotations.SerializedName
 data class CreateUserRequest(
 
     @SerializedName("email")
-    var userEmail: String,
+    var userEmail: String?,
 
     @SerializedName("password")
-    var userPassword: String,
+    var userPassword: String?,
 
     @SerializedName("name")
-    var userName: String,
+    var userName: String?,
 
     @SerializedName("age")
-    var userAge: Int,
+    var userAge: Int = 0,
 ) {
 
     override fun toString(): String {

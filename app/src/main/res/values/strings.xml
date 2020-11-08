@@ -12,9 +12,13 @@
     <string name="key_logged_in_user">key_logged_in_user</string>
     <!-- preference key -->
 
+    <!-- Common -->
+    <string name="enter_email_error">Enter Email</string>
+    <string name="enter_password_error">Enter Password</string>
+    <!--  -->
+
     <!-- Login Fragment -->
     <string name="login_email_hint">Email</string>
-    <string name="login_name_hint">Name</string>
     <string name="login_password_hint">Password</string>
     <string name="login_confirm_password_hint">Confirm Password</string>
     <string name="login_sign_up_text">Sign Up</string>
@@ -22,12 +26,13 @@
     <string name="login_forgot_password_text">Forgot Password ?</string>
     <string name="task_login_label">Login</string>
     <string name="login_email_valid_error">Enter valid email Address</string>
-    <string name="login_enter_email_error">Enter Email</string>
-    <string name="login_enter_password_error">Enter Password</string>
     <!-- -->
 
     <!-- Login Fragment -->
     <string name="sign_up_title">User Register</string>
+    <string name="sign_up_password_not_match">Password did not match</string>
+    <string name="sign_up_name_hint">Name</string>
+    <string name="sign_up_enter_name_error">Enter Name</string>
     <!-- -->
 
     <!-- Task List Fragment -->

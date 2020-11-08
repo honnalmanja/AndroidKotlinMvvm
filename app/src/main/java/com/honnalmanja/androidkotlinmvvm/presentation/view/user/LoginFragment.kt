@@ -67,6 +67,7 @@ class LoginFragment : Fragment() {
 
         binding.loginSignUpBtn
             .setOnClickListener {
+                clearAllErrorMessage()
                 findNavController().navigate(R.id.action_LoginFragment_to_SignUpFragment)
             }
         binding.loginForgotBtn.setOnClickListener {
@@ -96,7 +97,7 @@ class LoginFragment : Fragment() {
             when(it) {
                 CommonUtil.nullBlankErrorCode -> {
                     CommonUtil.showInputError(
-                        getString(R.string.login_enter_email_error),
+                        getString(R.string.enter_email_error),
                         binding.loginEmailTil
                     )
                 }
@@ -116,7 +117,7 @@ class LoginFragment : Fragment() {
             when(it) {
                 CommonUtil.nullBlankErrorCode -> {
                     CommonUtil.showInputError(
-                        getString(R.string.login_enter_password_error),
+                        getString(R.string.enter_password_error),
                         binding.loginPasswordTil
                     )
                 }
@@ -156,5 +157,10 @@ class LoginFragment : Fragment() {
 
     private fun showErrorMessage(message: String){
         Snackbar.make(binding.loginHolderLLc, message, Snackbar.LENGTH_LONG).show()
+    }
+
+    private fun clearAllErrorMessage(){
+        CommonUtil.disableTextError(binding.loginEmailTil)
+        CommonUtil.disableTextError(binding.loginPasswordTil)
     }
 }
