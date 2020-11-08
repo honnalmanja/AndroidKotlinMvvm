@@ -66,18 +66,18 @@ class UserRepositoryImpl(
         try {
             val response = userRemoteDataSource.createUser(createUserRequest)
 
-            userLiveData = if(response?.code() == 202) {
+            userLiveData = if(response.code() == 201) {
                 LogUtils.logD(_TAG, "Inside IF")
                 UserLiveData(
                     200, response.message(),
-                    null, //response.body()?.user
+                    response.body()?.user,
                     null,
                     response.body()?.token
                 )
             } else {
                 LogUtils.logD(_TAG, "Inside Else")
                 UserLiveData(
-                    response?.code(), response?.message(),
+                    response.code(), response.message(),
                     null, null, null
                 )
             }

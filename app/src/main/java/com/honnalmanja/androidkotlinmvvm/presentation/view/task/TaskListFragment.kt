@@ -66,9 +66,9 @@ class TaskListFragment : Fragment() {
             }
         })
 
-        binding.taskAddFab.setOnClickListener {
-            findNavController().navigate(R.id.action_TaskListFragment_to_AddTaskFragment)
-        }
+//        binding.taskAddFab.setOnClickListener {
+//            findNavController().navigate(R.id.action_TaskListFragment_to_AddTaskFragment)
+//        }
     }
 
 //    override fun onStart() {
