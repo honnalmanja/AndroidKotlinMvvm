@@ -24,8 +24,10 @@ class AppPreference(context: Context) {
      * @param user : User object sent from server
      * @param token: User Token string got from server
      */
-    suspend fun saveUserAndToken(user: User?, token: String?): Boolean? {
+     suspend fun saveUserAndToken(user: User?, token: String?): Boolean  {
         try {
+            LogUtils.logD(TAG,"user $user")
+            LogUtils.logD(TAG,"token $token")
             val editor:SharedPreferences.Editor = sharedPreference.edit()
             editor.putString(appContext.getString(R.string.key_user_token), token)
             if(user != null){

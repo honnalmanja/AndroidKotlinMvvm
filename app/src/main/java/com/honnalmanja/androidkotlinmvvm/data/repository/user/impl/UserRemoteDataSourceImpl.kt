@@ -11,21 +11,19 @@ class UserRemoteDataSourceImpl(
     private val service: TMServices
 ): UserRemoteDataSource {
 
-    private val _TAG: String = "UserRemoteDataSourceImpl"
-
-    override suspend fun loginUser(loginRequest: LoginUserRequest): Response<UserResponse?>? {
+    override suspend fun loginUser(loginRequest: LoginUserRequest): Response<UserResponse> {
         return service.loginUser(loginRequest)
     }
 
-    override suspend fun logoutUser(token: String?): Response<UserResponse?>? {
+    override suspend fun logoutUser(token: String?): Response<UserResponse> {
         return service.logoutUser(token)
     }
 
-    override suspend fun logoutAll(token: String?): Response<UserResponse?>? {
+    override suspend fun logoutAll(token: String?): Response<UserResponse> {
         return service.logoutAll(token)
     }
 
-    override suspend fun createUser(createUserRequest: CreateUserRequest?): Response<UserResponse?>? {
+    override suspend fun createUser(createUserRequest: CreateUserRequest?): Response<UserResponse> {
         return service.createUser(createUserRequest)
     }
 }

@@ -9,12 +9,12 @@ import retrofit2.http.Header
 
 interface UserRemoteDataSource {
 
-    suspend fun loginUser(loginRequest: LoginUserRequest) : Response<UserResponse?>?
+    suspend fun loginUser(loginRequest: LoginUserRequest) : Response<UserResponse>
 
-    suspend fun logoutUser(@Header("Authorization") token: String?): Response<UserResponse?>?
+    suspend fun logoutUser(@Header("Authorization") token: String?): Response<UserResponse>
 
-    suspend fun logoutAll(@Header("Authorization") token: String?): Response<UserResponse?>?
+    suspend fun logoutAll(@Header("Authorization") token: String?): Response<UserResponse>
 
-    suspend fun createUser(@Body createUserRequest: CreateUserRequest?): Response<UserResponse?>?
+    suspend fun createUser(@Body createUserRequest: CreateUserRequest?): Response<UserResponse>
 
 }

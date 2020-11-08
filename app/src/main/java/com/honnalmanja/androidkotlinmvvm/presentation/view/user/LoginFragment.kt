@@ -137,10 +137,13 @@ class LoginFragment : Fragment() {
         val password: String? = viewModel.password.value
 
         viewModel.loginUser(email, password).observe(viewLifecycleOwner, Observer { response ->
-            LogUtils.logD(_TAG, "Login ResponseCode: ${response.statusCode}")
             when (response.statusCode) {
                 200 -> {
-                    findNavController().navigate(R.id.action_LoginFragment_to_TaskListFragment)
+                    viewModel.saveUserData(response).observe(viewLifecycleOwner, Observer {
+                        if (it != null) {
+                            findNavController().navigate(R.id.action_LoginFragment_to_TaskListFragment)
+                        }
+                    })
                 }
                 500 -> {
                     showErrorMessage(

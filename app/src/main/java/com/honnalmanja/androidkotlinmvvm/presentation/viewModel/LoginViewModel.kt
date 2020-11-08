@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.honnalmanja.androidkotlinmvvm.R
+import com.honnalmanja.androidkotlinmvvm.data.UserLiveData
 import com.honnalmanja.androidkotlinmvvm.data.model.app.LoginUser
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.LoginUserRequest
 import com.honnalmanja.androidkotlinmvvm.domain.usecase.UserUseCase
@@ -28,6 +29,12 @@ class LoginViewModel(
 
         val loginUserRequest = LoginUserRequest(email, password)
         val response = userUseCase.loginUser(loginUserRequest)
+        emit(response)
+
+    }
+
+    fun saveUserData(userLiveData: UserLiveData) = liveData  {
+        val response = userUseCase.saveUserData(userLiveData.user, userLiveData.token)
         emit(response)
     }
 

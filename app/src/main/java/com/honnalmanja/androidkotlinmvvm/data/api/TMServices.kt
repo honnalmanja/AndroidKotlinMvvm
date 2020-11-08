@@ -13,15 +13,15 @@ interface TMServices {
 
     //-------------------------- User Services ------------------------------//
     @POST("users/add")
-    suspend fun createUser(@Body createUserRequest: CreateUserRequest?): Response<UserResponse?>?
+    suspend fun createUser(@Body createUserRequest: CreateUserRequest?): Response<UserResponse>
 
     @POST("users/login")
-    suspend fun loginUser(@Body loginUserRequest: LoginUserRequest?): Response<UserResponse?>?
+    suspend fun loginUser(@Body loginUserRequest: LoginUserRequest?): Response<UserResponse>
 
     @POST("users/logoutAll")
-    suspend fun logoutAll(@Header("Authorization") token: String?): Response<UserResponse?>?
+    suspend fun logoutAll(@Header("Authorization") token: String?): Response<UserResponse>
 
     @POST("users/logout")
-    suspend fun logoutUser(@Header("Authorization") token: String?): Response<UserResponse?>?
+    suspend fun logoutUser(@Header("Authorization") token: String?): Response<UserResponse>
     //-------------------------- User Services ------------------------------//
 }

@@ -4,6 +4,7 @@ import com.honnalmanja.androidkotlinmvvm.data.model.remote.CreateUserRequest
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.LoginUserRequest
 import com.honnalmanja.androidkotlinmvvm.domain.repository.UserRepository
 import com.honnalmanja.androidkotlinmvvm.data.UserLiveData
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.User
 
 class UserUseCase(private val userRepository: UserRepository) {
 
@@ -17,6 +18,10 @@ class UserUseCase(private val userRepository: UserRepository) {
 
     suspend fun userToken() : String? {
         return userRepository.userToken()
+    }
+
+    suspend fun saveUserData(user: User?, token: String?): Boolean? {
+        return userRepository.saveUserAndToken(user, token)
     }
 
 }

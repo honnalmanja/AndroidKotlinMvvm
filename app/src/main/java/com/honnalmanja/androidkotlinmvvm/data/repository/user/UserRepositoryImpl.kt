@@ -4,6 +4,8 @@ import com.honnalmanja.androidkotlinmvvm.data.model.remote.CreateUserRequest
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.LoginUserRequest
 import com.honnalmanja.androidkotlinmvvm.domain.repository.UserRepository
 import com.honnalmanja.androidkotlinmvvm.data.UserLiveData
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.User
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.UserResponse
 import com.honnalmanja.androidkotlinmvvm.data.repository.user.source.UserPreferenceDataSource
 import com.honnalmanja.androidkotlinmvvm.data.repository.user.source.UserRemoteDataSource
 import com.honnalmanja.androidkotlinmvvm.utils.LogUtils
@@ -23,6 +25,10 @@ class UserRepositoryImpl(
         return postUserDetails(createUserRequest)
     }
 
+    override suspend fun saveUserAndToken(user: User?, token: String?): Boolean {
+        return userPreferenceDataSource.saveUserAndToken(user, token)
+    }
+
     override suspend fun userToken(): String? {
         return userPreferenceDataSource.getToken()
     }
@@ -31,22 +37,21 @@ class UserRepositoryImpl(
         lateinit var userLiveData: UserLiveData
         try {
             val response = userRemoteDataSource.loginUser(loginUserRequest)
-
-            userLiveData = if(response?.code() == (200 or 201 or 202)) {
+            userLiveData = if(response.code() == 202) {
+                val userResponse: UserResponse? = response.body()
                 UserLiveData(
                     200, response.message(),
-                    response.body()?.user, null,
-                    response.body()?.token
+                    userResponse?.user, null,
+                    userResponse?.token
                 )
             } else {
-                UserLiveData(
-                    response?.code(), response?.message(),
+                 UserLiveData(
+                    response.code(), response.message(),
                     null, null, null
                 )
             }
-            return userLiveData
         } catch (exception: Exception) {
-            LogUtils.logE(_TAG, ""+exception)
+            LogUtils.logE(_TAG, "postLoginUser $exception")
             userLiveData = UserLiveData(
                 500, "Unknown Exception",
                 null, null,
@@ -61,19 +66,22 @@ class UserRepositoryImpl(
         try {
             val response = userRemoteDataSource.createUser(createUserRequest)
 
-            userLiveData = if(response?.code() == (200 or 201 or 202)) {
+            userLiveData = if(response?.code() == 202) {
+                LogUtils.logD(_TAG, "Inside IF")
                 UserLiveData(
                     200, response.message(),
-                    response.body()?.user, null,
+                    null, //response.body()?.user
+                    null,
                     response.body()?.token
                 )
             } else {
+                LogUtils.logD(_TAG, "Inside Else")
                 UserLiveData(
                     response?.code(), response?.message(),
                     null, null, null
                 )
             }
-            return userLiveData
+
         } catch (exception: Exception) {
             LogUtils.logE(_TAG, ""+exception)
             userLiveData = UserLiveData(
