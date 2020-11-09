@@ -7,10 +7,10 @@ data class User(
     var userID: String,
 
     @SerializedName("name")
-    var userName: String,
+    var userName: String?,
 
     @SerializedName("email")
-    var userEmail: String,
+    var userEmail: String?,
 
     @SerializedName("age")
     var userAge: Int,

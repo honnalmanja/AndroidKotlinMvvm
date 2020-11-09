@@ -1,4 +1,4 @@
-package com.honnalmanja.androidkotlinmvvm.presentation
+package com.honnalmanja.androidkotlinmvvm.presentation.view.user
 
 import android.view.View
 import androidx.fragment.app.testing.launchFragmentInContainer

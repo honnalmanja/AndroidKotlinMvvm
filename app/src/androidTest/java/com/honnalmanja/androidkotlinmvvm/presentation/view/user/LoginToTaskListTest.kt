@@ -1,24 +1,16 @@
-package com.honnalmanja.androidkotlinmvvm.presentation
+package com.honnalmanja.androidkotlinmvvm.presentation.view.user
 
-import android.view.View
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.lifecycle.Lifecycle
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.google.android.material.textfield.TextInputLayout
 import com.honnalmanja.androidkotlinmvvm.R
 import com.honnalmanja.androidkotlinmvvm.presentation.view.TaskActivity
 import com.honnalmanja.androidkotlinmvvm.presentation.view.task.TaskListFragment
-import org.hamcrest.Description
-import org.hamcrest.Matcher
-import org.hamcrest.TypeSafeMatcher
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
