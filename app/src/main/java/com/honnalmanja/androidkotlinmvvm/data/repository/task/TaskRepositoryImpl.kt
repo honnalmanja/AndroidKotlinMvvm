@@ -25,7 +25,10 @@ class TaskRepositoryImpl(
     }
 
     override suspend fun getATasks(id: String?): TaskLiveData {
-        TODO("Not yet implemented")
+       val response = taskRemoteDataSource.getATask(taskLocalDataSource.getAuthToken(), id)
+        return TaskLiveData(
+            response.code(), response.message(), response.body(),null
+        )
     }
 
     override suspend fun addATasks(addTaskRequest: AddTaskRequest): TaskLiveData {
