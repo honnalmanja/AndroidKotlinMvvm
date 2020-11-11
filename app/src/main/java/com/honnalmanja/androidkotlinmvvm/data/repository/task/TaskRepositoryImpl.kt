@@ -20,7 +20,7 @@ class TaskRepositoryImpl(
     override suspend fun getAllTasks(): TaskLiveData {
         val response = taskRemoteDataSource.getAllTasks(taskLocalDataSource.getAuthToken())
         return TaskLiveData(
-            response.code(), response.message(), null, response.body()
+            response.code(), response.message(), null, response.body()?.taskList
         )
     }
 

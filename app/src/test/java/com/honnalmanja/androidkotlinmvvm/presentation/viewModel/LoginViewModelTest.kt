@@ -8,6 +8,7 @@ import com.honnalmanja.androidkotlinmvvm.data.model.app.UserLiveData
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.user.User
 import com.honnalmanja.androidkotlinmvvm.domain.FakeUserRepository
 import com.honnalmanja.androidkotlinmvvm.domain.usecase.UserUseCase
+import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.user.LoginViewModel
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

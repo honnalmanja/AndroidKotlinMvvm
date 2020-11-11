@@ -6,7 +6,7 @@
     <data>
         <variable
             name="login"
-            type="com.honnalmanja.androidkotlinmvvm.presentation.viewModel.LoginViewModel" />
+            type="com.honnalmanja.androidkotlinmvvm.presentation.viewModel.user.LoginViewModel" />
     </data>
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/loginHolderLLc"

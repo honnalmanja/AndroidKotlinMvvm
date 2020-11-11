@@ -1,9 +1,8 @@
-package com.honnalmanja.androidkotlinmvvm.presentation.viewModel
+package com.honnalmanja.androidkotlinmvvm.presentation.viewModel.task
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.honnalmanja.androidkotlinmvvm.domain.usecase.TaskUseCase
-import com.honnalmanja.androidkotlinmvvm.domain.usecase.UserUseCase
 
 @Suppress("UNCHECKED_CAST")
 class TaskViewModelFactory(private val taskUseCase: TaskUseCase):

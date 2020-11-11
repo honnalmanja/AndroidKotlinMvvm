@@ -1,6 +1,7 @@
 package com.honnalmanja.androidkotlinmvvm.data.api
 
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.AddTaskRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.TaskResponse
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.Tasks
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.UpdateTaskRequest
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.user.CreateUserRequest
@@ -29,23 +30,23 @@ interface TMServices {
     //-------------------------- User Services ------------------------------//
     //-------------------------- Task Services ------------------------------//
     @GET("tasks")
-    fun getAllTasks(@Header("Authorization") token: String?):
-            Response<List<Tasks>>
+    suspend fun getAllTasks(@Header("Authorization") token: String?):
+            Response<TaskResponse>
 
     @POST("tasks/add")
-    fun addTask(@Header("Authorization") token: String?, @Body addTaskRequest: AddTaskRequest):
+    suspend fun addTask(@Header("Authorization") token: String?, @Body addTaskRequest: AddTaskRequest):
             Response<Tasks>
 
     @PATCH("tasks/{id}")
-    fun updateTask(@Header("Authorization") token: String?,@Path("id") id: String?,
+    suspend fun updateTask(@Header("Authorization") token: String?,@Path("id") id: String?,
                    @Body updateTaskRequest: UpdateTaskRequest): Response<Tasks>
 
     @DELETE("tasks/{id}")
-    fun deleteTask(@Header("Authorization") token: String?, @Path("id") id: String?):
+    suspend fun deleteTask(@Header("Authorization") token: String?, @Path("id") id: String?):
             Response<Tasks>
 
     @GET("tasks/{id}")
-    fun getATask(@Header("Authorization") token: String?, @Path("id") id: String?):
+    suspend fun getATask(@Header("Authorization") token: String?, @Path("id") id: String?):
             Response<Tasks>
 
     //-------------------------- Task Services ------------------------------//

@@ -1,4 +1,4 @@
-package com.honnalmanja.androidkotlinmvvm.presentation.viewModel
+package com.honnalmanja.androidkotlinmvvm.presentation.viewModel.user
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
