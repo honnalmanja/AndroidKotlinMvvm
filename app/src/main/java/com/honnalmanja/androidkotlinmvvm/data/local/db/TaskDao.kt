@@ -10,6 +10,9 @@ import com.honnalmanja.androidkotlinmvvm.data.model.db.Task
 interface TaskDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun saveATasks(task: Task)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveAllTasks(taskList: List<Task>)
 
     @Query("SELECT * FROM tasks")
@@ -19,9 +22,9 @@ interface TaskDao {
     suspend fun deleteAllTasks()
 
     @Query("SELECT * FROM tasks WHERE task_id = :taskID")
-    suspend fun getATask(taskID: Int)
+    suspend fun getATask(taskID: String?): Task?
 
     @Query("DELETE FROM tasks WHERE task_id = :taskID")
-    suspend fun deleteATask(taskID: Int)
+    suspend fun deleteATask(taskID: String?)
 
 }

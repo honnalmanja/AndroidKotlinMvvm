@@ -1,7 +1,7 @@
 package com.honnalmanja.androidkotlinmvvm.data.repository.task.source
 
-import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.Tasks
-import okhttp3.internal.concurrent.Task
+import com.honnalmanja.androidkotlinmvvm.data.model.db.Task
+
 
 interface TaskLocalDataSource {
 
@@ -9,11 +9,11 @@ interface TaskLocalDataSource {
 
     suspend fun getATask(id: String?): Task?
 
-    suspend fun getAllTask(): List<Tasks>?
+    suspend fun getAllTask(): List<Task>?
 
-    suspend fun saveATask(task: Tasks)
+    suspend fun saveATask(task: Task)
 
-    suspend fun saveAllTasks(taskList: List<Tasks>)
+    suspend fun saveAllTasks(taskList: List<Task>)
 
     suspend fun deleteATask(id: String?)
 
