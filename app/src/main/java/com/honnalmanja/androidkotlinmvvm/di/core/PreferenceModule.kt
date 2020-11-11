@@ -1,8 +1,7 @@
 package com.honnalmanja.androidkotlinmvvm.di.core
 
-import android.app.Application
 import android.content.Context
-import com.honnalmanja.androidkotlinmvvm.data.local.AppPreference
+import com.honnalmanja.androidkotlinmvvm.data.local.prefs.AppPreference
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

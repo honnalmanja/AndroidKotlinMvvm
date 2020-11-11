@@ -1,10 +1,10 @@
-package com.honnalmanja.androidkotlinmvvm.data.local
+package com.honnalmanja.androidkotlinmvvm.data.local.prefs
 
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.honnalmanja.androidkotlinmvvm.R
-import com.honnalmanja.androidkotlinmvvm.data.model.remote.User
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.user.User
 import com.honnalmanja.androidkotlinmvvm.utils.LogUtils
 import io.reactivex.Single
 import java.lang.Exception

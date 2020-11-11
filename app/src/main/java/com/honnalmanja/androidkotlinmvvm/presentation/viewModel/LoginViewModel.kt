@@ -3,13 +3,10 @@ package com.honnalmanja.androidkotlinmvvm.presentation.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.honnalmanja.androidkotlinmvvm.R
-import com.honnalmanja.androidkotlinmvvm.data.UserLiveData
-import com.honnalmanja.androidkotlinmvvm.data.model.app.LoginUser
-import com.honnalmanja.androidkotlinmvvm.data.model.remote.LoginUserRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.app.UserLiveData
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.user.LoginUserRequest
 import com.honnalmanja.androidkotlinmvvm.domain.usecase.UserUseCase
 import com.honnalmanja.androidkotlinmvvm.utils.CommonUtil
-import com.honnalmanja.androidkotlinmvvm.utils.LogUtils
 
 class LoginViewModel(
     private val userUseCase: UserUseCase

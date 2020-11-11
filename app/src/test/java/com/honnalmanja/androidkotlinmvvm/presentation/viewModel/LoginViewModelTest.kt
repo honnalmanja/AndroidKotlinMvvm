@@ -2,11 +2,10 @@ package com.honnalmanja.androidkotlinmvvm.presentation.viewModel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth
-import com.honnalmanja.androidkotlinmvvm.data.UserLiveData
-import com.honnalmanja.androidkotlinmvvm.data.model.remote.User
+import com.honnalmanja.androidkotlinmvvm.data.model.app.UserLiveData
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.user.User
 import com.honnalmanja.androidkotlinmvvm.domain.FakeUserRepository
 import com.honnalmanja.androidkotlinmvvm.domain.usecase.UserUseCase
 import org.junit.Before

@@ -1,8 +1,7 @@
 package com.honnalmanja.androidkotlinmvvm.data.repository.user.impl
 
-import android.util.Log
-import com.honnalmanja.androidkotlinmvvm.data.local.AppPreference
-import com.honnalmanja.androidkotlinmvvm.data.model.remote.User
+import com.honnalmanja.androidkotlinmvvm.data.local.prefs.AppPreference
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.user.User
 import com.honnalmanja.androidkotlinmvvm.data.repository.user.source.UserPreferenceDataSource
 
 class UserPreferenceDataSourceImpl(

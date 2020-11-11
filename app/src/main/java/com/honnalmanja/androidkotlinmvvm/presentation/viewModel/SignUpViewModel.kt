@@ -3,7 +3,7 @@ package com.honnalmanja.androidkotlinmvvm.presentation.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.honnalmanja.androidkotlinmvvm.data.model.remote.CreateUserRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.user.CreateUserRequest
 import com.honnalmanja.androidkotlinmvvm.domain.usecase.UserUseCase
 import com.honnalmanja.androidkotlinmvvm.utils.CommonUtil
 import com.honnalmanja.androidkotlinmvvm.utils.LogUtils

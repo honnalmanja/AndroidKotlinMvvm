@@ -1,4 +1,4 @@
-package com.honnalmanja.androidkotlinmvvm.data.model.remote
+package com.honnalmanja.androidkotlinmvvm.data.model.remote.user
 
 import com.google.gson.annotations.SerializedName
 

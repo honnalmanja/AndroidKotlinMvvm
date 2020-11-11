@@ -1,12 +1,13 @@
 package com.honnalmanja.androidkotlinmvvm.data.api
 
-import com.honnalmanja.androidkotlinmvvm.data.model.remote.CreateUserRequest
-import com.honnalmanja.androidkotlinmvvm.data.model.remote.LoginUserRequest
-import com.honnalmanja.androidkotlinmvvm.data.model.remote.UserResponse
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.AddTaskRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.Tasks
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.UpdateTaskRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.user.CreateUserRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.user.LoginUserRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.user.UserResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface TMServices {
 
@@ -24,4 +25,28 @@ interface TMServices {
     @POST("users/logout")
     suspend fun logoutUser(@Header("Authorization") token: String?): Response<UserResponse>
     //-------------------------- User Services ------------------------------//
+
+    //-------------------------- User Services ------------------------------//
+    //-------------------------- Task Services ------------------------------//
+    @GET("tasks")
+    fun getAllTasks(@Header("Authorization") token: String?):
+            Response<List<Tasks>>
+
+    @POST("tasks/add")
+    fun addTask(@Header("Authorization") token: String?, @Body addTaskRequest: AddTaskRequest):
+            Response<Tasks>
+
+    @PATCH("tasks/{id}")
+    fun updateTask(@Header("Authorization") token: String?,@Path("id") id: String?,
+                   @Body updateTaskRequest: UpdateTaskRequest): Response<Tasks>
+
+    @DELETE("tasks/{id}")
+    fun deleteTask(@Header("Authorization") token: String?, @Path("id") id: String?):
+            Response<Tasks>
+
+    @GET("tasks/{id}")
+    fun getATask(@Header("Authorization") token: String?, @Path("id") id: String?):
+            Response<Tasks>
+
+    //-------------------------- Task Services ------------------------------//
 }
