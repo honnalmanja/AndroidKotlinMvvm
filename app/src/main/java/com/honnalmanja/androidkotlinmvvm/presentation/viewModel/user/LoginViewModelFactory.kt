@@ -1,4 +1,4 @@
-package com.honnalmanja.androidkotlinmvvm.presentation.viewModel
+package com.honnalmanja.androidkotlinmvvm.presentation.viewModel.user
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

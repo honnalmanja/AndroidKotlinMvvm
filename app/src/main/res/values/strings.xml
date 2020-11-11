@@ -38,6 +38,8 @@
     <!-- Task List Fragment -->
     <string name="search_task_hint">Search Task</string>
     <string name="task_list_label">Task List</string>
+    <string name="task_list_title">Your Tasks</string>
+    <string name="task_list_new_task">Add New Task</string>
     <!-- -->
 
     <!-- Task Add Fragment -->

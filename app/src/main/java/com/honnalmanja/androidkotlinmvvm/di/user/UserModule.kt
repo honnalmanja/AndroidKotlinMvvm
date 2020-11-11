@@ -1,8 +1,8 @@
 package com.honnalmanja.androidkotlinmvvm.di.user
 
 import com.honnalmanja.androidkotlinmvvm.domain.usecase.UserUseCase
-import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.LoginViewModelFactory
-import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.SignUpViewModelFactory
+import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.user.LoginViewModelFactory
+import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.user.SignUpViewModelFactory
 import dagger.Module
 import dagger.Provides
 

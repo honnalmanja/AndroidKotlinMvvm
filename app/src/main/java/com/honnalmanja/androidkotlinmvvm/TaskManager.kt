@@ -15,7 +15,7 @@ class TaskManager : Application(), Injector {
 
         appComponent = DaggerAppComponent.builder()
             .appModule(AppModule(applicationContext))
-            .remoteModule(RemoteModule(BuildConfig.BASE_URL))
+            .retrofitModule(RetrofitModule(BuildConfig.BASE_URL))
             .build()
     }
 

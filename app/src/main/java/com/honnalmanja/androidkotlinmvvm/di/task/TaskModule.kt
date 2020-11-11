@@ -1,7 +1,7 @@
 package com.honnalmanja.androidkotlinmvvm.di.task
 
 import com.honnalmanja.androidkotlinmvvm.domain.usecase.TaskUseCase
-import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.TaskViewModelFactory
+import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.task.TaskViewModelFactory
 import dagger.Module
 import dagger.Provides
 

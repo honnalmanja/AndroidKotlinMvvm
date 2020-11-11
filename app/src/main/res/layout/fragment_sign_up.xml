@@ -6,7 +6,7 @@
    <data>
        <variable
            name="signUp"
-           type="com.honnalmanja.androidkotlinmvvm.presentation.viewModel.SignUpViewModel" />
+           type="com.honnalmanja.androidkotlinmvvm.presentation.viewModel.user.SignUpViewModel" />
    </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat

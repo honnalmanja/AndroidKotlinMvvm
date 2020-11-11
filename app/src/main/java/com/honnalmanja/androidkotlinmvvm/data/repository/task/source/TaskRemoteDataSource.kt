@@ -1,13 +1,14 @@
 package com.honnalmanja.androidkotlinmvvm.data.repository.task.source
 
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.AddTaskRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.TaskResponse
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.Tasks
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.UpdateTaskRequest
 import retrofit2.Response
 
 interface TaskRemoteDataSource {
 
-    suspend fun getAllTasks(token: String?): Response<List<Tasks>>
+    suspend fun getAllTasks(token: String?): Response<TaskResponse>
 
     suspend fun addTask(token: String?,addTaskRequest: AddTaskRequest): Response<Tasks>
 

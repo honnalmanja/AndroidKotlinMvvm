@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-class RemoteModule(private val BASE_URL: String) {
+class RetrofitModule(private val BASE_URL: String) {
 
     @Singleton
     @Provides
@@ -20,7 +20,7 @@ class RemoteModule(private val BASE_URL: String) {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+           // .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

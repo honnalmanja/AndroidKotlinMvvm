@@ -5,10 +5,10 @@ import java.util.*
 
 data class Tasks(
     @SerializedName("_id")
-    var taskID: String? = null,
+    val taskID: String,
 
     @SerializedName("description")
-    var taskDescription: String? = null,
+    val taskDescription: String,
 
     @SerializedName("completed")
     var taskCompleted: Boolean = false,

@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/task_description_item_llc"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<layout>
 
-    <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/task_description_cb"
+    <data>
+        <variable
+            name="task"
+            type="com.honnalmanja.androidkotlinmvvm.data.model.remote.task.Tasks" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/task_description_item_llc"
+        android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/app_name"/>
+        android:layout_height="wrap_content">
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/task_description_cb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/app_name"
+            android:textColor="@color/colorPrimaryText"
+            android:checked="@{task.taskCompleted}"
+            android:text="@{task.taskDescription}"
+            tools:text="@string/app_name" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -14,8 +14,8 @@ import com.honnalmanja.androidkotlinmvvm.R
 import com.honnalmanja.androidkotlinmvvm.databinding.FragmentSignUpBinding
 import com.honnalmanja.androidkotlinmvvm.di.Injector
 import com.honnalmanja.androidkotlinmvvm.presentation.view.TaskActivity
-import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.SignUpViewModel
-import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.SignUpViewModelFactory
+import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.user.SignUpViewModel
+import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.user.SignUpViewModelFactory
 import com.honnalmanja.androidkotlinmvvm.utils.CommonUtil
 import com.honnalmanja.androidkotlinmvvm.utils.LogUtils
 import javax.inject.Inject

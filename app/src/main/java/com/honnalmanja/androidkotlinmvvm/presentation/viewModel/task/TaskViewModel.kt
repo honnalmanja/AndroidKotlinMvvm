@@ -1,10 +1,8 @@
-package com.honnalmanja.androidkotlinmvvm.presentation.viewModel
+package com.honnalmanja.androidkotlinmvvm.presentation.viewModel.task
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.honnalmanja.androidkotlinmvvm.domain.usecase.TaskUseCase
-import com.honnalmanja.androidkotlinmvvm.domain.usecase.UserUseCase
-import com.honnalmanja.androidkotlinmvvm.utils.LogUtils
 
 class TaskViewModel(private val taskUseCase: TaskUseCase): ViewModel() {
 
@@ -15,6 +13,11 @@ class TaskViewModel(private val taskUseCase: TaskUseCase): ViewModel() {
         val response = taskUseCase.getAuthToken()
         emit(response)
 
+    }
+
+    fun getTaskList() = liveData {
+        val response = taskUseCase.getAllTask()
+        emit(response)
     }
 
 }
