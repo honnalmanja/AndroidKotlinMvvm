@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+    <data>
+        <variable
+            name="login"
+            type="com.honnalmanja.androidkotlinmvvm.presentation.viewModel.LoginViewModel" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/loginHolderLLc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".LoginFragment">
+        tools:context=".presentation.view.user.LoginFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -39,6 +46,7 @@
                 android:id="@+id/login_email_til"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/login_email_hint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -47,11 +55,11 @@
                     android:id="@+id/login_email_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/login_email_hint"
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress"
                     android:marqueeRepeatLimit="marquee_forever"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:text="@={login.email}"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,6 +68,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:hint="@string/login_password_hint"
+                app:passwordToggleEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/login_email_til">
@@ -68,11 +78,11 @@
                     android:id="@+id/login_password_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/login_password_hint"
-                    android:imeOptions="actionGo"
+                    android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:marqueeRepeatLimit="marquee_forever"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:text="@={login.password}"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,6 +105,7 @@
                 android:paddingStart="40dp"
                 android:paddingEnd="40dp"
                 android:text="@string/task_login_label"
+                android:onClick="@{()->login.validateFields(login.email, login.password)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/login_password_til" />
 

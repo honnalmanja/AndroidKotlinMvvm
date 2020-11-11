@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/TaskListFragment"
-        android:name="com.honnalmanja.androidkotlinmvvm.TaskListFragment"
+        android:name="com.honnalmanja.androidkotlinmvvm.presentation.view.task.TaskListFragment"
         android:label="@string/task_list_label"
         tools:layout="@layout/fragment_task_list">
 
@@ -20,12 +20,12 @@
     </fragment>
     <fragment
         android:id="@+id/LoginFragment"
-        android:name="com.honnalmanja.androidkotlinmvvm.LoginFragment"
+        android:name="com.honnalmanja.androidkotlinmvvm.presentation.view.user.LoginFragment"
         android:label="@string/task_login_label"
         tools:layout="@layout/fragment_login">
 
         <action
-            android:id="@+id/action_LoginFragment_to_AddTaskFragment"
+            android:id="@+id/action_LoginFragment_to_TaskListFragment"
             app:destination="@id/TaskListFragment"/>
         <action
             android:id="@+id/action_LoginFragment_to_SignUpFragment"
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/AddTaskFragment"
-        android:name="com.honnalmanja.androidkotlinmvvm.AddTaskFragment"
+        android:name="com.honnalmanja.androidkotlinmvvm.presentation.view.task.AddTaskFragment"
         android:label="@string/add_task_label"
         tools:layout="@layout/fragment_task_add">
 
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/SignUpFragment"
-        android:name="com.honnalmanja.androidkotlinmvvm.SignUpFragment"
+        android:name="com.honnalmanja.androidkotlinmvvm.presentation.view.user.SignUpFragment"
         android:label="@string/login_sign_up_label"
         tools:layout="@layout/fragment_sign_up">
 
