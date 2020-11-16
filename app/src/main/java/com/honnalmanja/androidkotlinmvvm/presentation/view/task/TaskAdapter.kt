@@ -11,17 +11,18 @@ import com.honnalmanja.androidkotlinmvvm.databinding.LayoutTaskListRowItemBindin
 import com.honnalmanja.androidkotlinmvvm.utils.LogUtils
 
 class TaskAdapter(
-    private val taskList: ArrayList<Tasks> = ArrayList(),
     private val taskListener: TaskListener
 ): RecyclerView.Adapter<TaskViewHolder>() {
+
+    private val taskList: ArrayList<Tasks> = ArrayList()
 
     fun setAllTasks(tasksList: List<Tasks>){
         taskList.clear()
         taskList.addAll(tasksList)
     }
 
-    fun setATasks(task: Tasks){
-        taskList.add(task)
+    fun setATasks(position: Int, task: Tasks){
+        taskList[position] = task
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
@@ -34,8 +35,13 @@ class TaskAdapter(
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.bindValues(taskList[position])
-        holder.itemHolder().setOnCheckedChangeListener { _, isChecked ->
-            taskList[holder.adapterPosition].taskCompleted = isChecked
+//        holder.itemHolder().setOnCheckedChangeListener { _, isChecked ->
+//            taskList[holder.adapterPosition].taskCompleted = isChecked
+//            taskListener.onTaskSelected(holder.adapterPosition, taskList[holder.adapterPosition])
+//        }
+        holder.itemHolder().setOnClickListener {
+            val checked = taskList[holder.adapterPosition].taskCompleted
+            taskList[holder.adapterPosition].taskCompleted = !checked
             taskListener.onTaskSelected(holder.adapterPosition, taskList[holder.adapterPosition])
         }
     }

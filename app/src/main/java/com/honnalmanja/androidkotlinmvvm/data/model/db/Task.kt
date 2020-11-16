@@ -2,9 +2,10 @@ package com.honnalmanja.androidkotlinmvvm.data.model.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "tasks")
+@Entity(tableName = "tasks", indices = [Index(value = ["task_id"], unique = true)])
 class Task (
     @ColumnInfo(name = "task_id") var taskID: String,
     @ColumnInfo(name = "task_description") var taskDescription: String? = null,

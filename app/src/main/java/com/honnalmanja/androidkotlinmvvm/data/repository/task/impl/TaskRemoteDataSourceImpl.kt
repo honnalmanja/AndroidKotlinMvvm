@@ -21,7 +21,7 @@ class TaskRemoteDataSourceImpl(
         return service.addTask(token, addTaskRequest)
     }
 
-    override suspend fun updateTask(token: String?, id: String?, updateTaskRequest: UpdateTaskRequest): Response<Tasks> {
+    override suspend fun updateTask(token: String?, id: String, updateTaskRequest: UpdateTaskRequest): Response<Tasks> {
         return service.updateTask(token, id, updateTaskRequest)
     }
 

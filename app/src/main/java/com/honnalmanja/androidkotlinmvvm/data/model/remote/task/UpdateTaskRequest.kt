@@ -1,14 +1,13 @@
 package com.honnalmanja.androidkotlinmvvm.data.model.remote.task
 
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
-data class UpdateTaskRequest(
-    @SerializedName("_id")
-    var taskID: String? = null,
+class UpdateTaskRequest(description: String?, isCompleted: Boolean) {
 
     @SerializedName("description")
-    var description: String? = null,
+    var description: String? = description
 
     @SerializedName("completed")
-    var isCompleted: Boolean? = false
-)
+    var isCompleted: Boolean = isCompleted
+}
