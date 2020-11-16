@@ -12,7 +12,7 @@ interface TaskRemoteDataSource {
 
     suspend fun addTask(token: String?,addTaskRequest: AddTaskRequest): Response<Tasks>
 
-    suspend fun updateTask(token: String?, id: String?, updateTaskRequest: UpdateTaskRequest): Response<Tasks>
+    suspend fun updateTask(token: String?, id: String, updateTaskRequest: UpdateTaskRequest): Response<Tasks>
 
     suspend fun deleteTask(token: String?, id: String?): Response<Tasks>
 

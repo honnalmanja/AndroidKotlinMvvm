@@ -10,15 +10,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.honnalmanja.androidkotlinmvvm.R
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.Tasks
 import com.honnalmanja.androidkotlinmvvm.databinding.FragmentTaskListBinding
 import com.honnalmanja.androidkotlinmvvm.di.Injector
 import com.honnalmanja.androidkotlinmvvm.presentation.view.TaskActivity
-import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.task.TaskViewModel
-import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.task.TaskViewModelFactory
+import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.task.TaskListViewModel
+import com.honnalmanja.androidkotlinmvvm.presentation.viewModel.task.TaskListViewModelFactory
 import com.honnalmanja.androidkotlinmvvm.utils.LogUtils
 import javax.inject.Inject
 
@@ -27,9 +26,9 @@ class TaskListFragment : Fragment(), TaskListener {
     private val _TAG = "TaskListFragment"
 
     @Inject
-    lateinit var taskViewModelFactory: TaskViewModelFactory
+    lateinit var taskListViewModelFactory: TaskListViewModelFactory
 
-    lateinit var viewModel: TaskViewModel
+    lateinit var listViewModel: TaskListViewModel
 
     lateinit var binding: FragmentTaskListBinding
 
@@ -50,7 +49,7 @@ class TaskListFragment : Fragment(), TaskListener {
             savedInstanceState: Bundle?
     ): View? {
         (activity?.application as Injector).createTaskSubComponent().inject(this)
-        viewModel = ViewModelProvider(this, taskViewModelFactory).get(TaskViewModel::class.java)
+        listViewModel = ViewModelProvider(this, taskListViewModelFactory).get(TaskListViewModel::class.java)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_task_list, container, false)
         binding.lifecycleOwner = this
@@ -64,7 +63,7 @@ class TaskListFragment : Fragment(), TaskListener {
 
         initRecyclerView()
 
-        viewModel.getUserToken().observe(viewLifecycleOwner , Observer { token ->
+        listViewModel.getUserToken().observe(viewLifecycleOwner , Observer { token ->
             LogUtils.logD(_TAG, "inside getUserToken")
             if (token == null){
                 findNavController().navigate(R.id.LoginFragment)
@@ -80,14 +79,15 @@ class TaskListFragment : Fragment(), TaskListener {
 
     private fun initRecyclerView() {
         binding.taskListRv.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        adapter = TaskAdapter(ArrayList(), this)
+        adapter = TaskAdapter(this)
         binding.taskListRv.adapter = adapter
     }
 
     private fun callTaskList() {
-        viewModel.getTaskList().observe(viewLifecycleOwner, Observer { taskLiveData ->
-            if(taskLiveData.statusCode == 200){
-                adapter = TaskAdapter(taskLiveData.taskList as ArrayList<Tasks>,this)
+        listViewModel.getTaskList().observe(viewLifecycleOwner, Observer { taskLiveData ->
+            LogUtils.logD(_TAG, "${taskLiveData.statusCode}")
+            if(taskLiveData.statusCode == 200 && !taskLiveData.taskList.isNullOrEmpty()){
+                adapter.setAllTasks(taskLiveData.taskList!!)
                 binding.taskListRv.adapter = adapter
                 adapter.notifyDataSetChanged()
             } else {
@@ -102,6 +102,7 @@ class TaskListFragment : Fragment(), TaskListener {
 
     private fun initTaskBar() {
         (activity as TaskActivity).toggleTaskBar()
+        (activity as TaskActivity).enableBackPress(true)
         (activity as TaskActivity).pageTitle(getString(R.string.task_list_title))
     }
 
@@ -112,6 +113,29 @@ class TaskListFragment : Fragment(), TaskListener {
 
     override fun onTaskSelected(position: Int, tasks: Tasks) {
         LogUtils.logI("onTaskSelected", "$tasks")
-        //showErrorMessage("${tasks.taskID} = ${tasks.taskCompleted}")
+        updateTask(position, tasks)
+    }
+
+    private fun updateTask(position: Int, tasks: Tasks) {
+
+        if(tasks.taskID.isNotBlank()) {
+            listViewModel.updateTaskList(tasks)
+                .observe(viewLifecycleOwner, Observer { taskLiveData ->
+                    LogUtils.logD(_TAG, "${taskLiveData.statusCode}")
+                    if (taskLiveData.statusCode == 202 && taskLiveData.task != null) {
+                        adapter.setATasks(position, taskLiveData.task!!)
+                        adapter.notifyItemChanged(position)
+                    } else {
+                        showErrorMessage(
+                            if (taskLiveData == null) {
+                                "Something went wrong"
+                            } else {
+                                taskLiveData.message!!
+                            }
+                        )
+                    }
+                })
+        }
+
     }
 }

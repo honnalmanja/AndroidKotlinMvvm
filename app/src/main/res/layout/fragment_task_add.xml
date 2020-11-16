@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="addTask"
+            type="com.honnalmanja.androidkotlinmvvm.presentation.viewModel.task.AddTaskViewModel" />
+    </data>
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,6 +16,7 @@
         tools:context=".presentation.view.task.AddTaskFragment">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_task_til"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -19,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="start|top"
                 android:hint="@string/enter_task_description_text"
+                android:text="@={addTask.task}"
                 android:imeOptions="actionDone"
                 android:inputType="textMultiLine"
                 android:lines="5"

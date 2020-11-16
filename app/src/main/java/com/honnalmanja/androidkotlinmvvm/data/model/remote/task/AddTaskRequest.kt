@@ -7,5 +7,5 @@ data class AddTaskRequest(
     var description: String?,
 
     @SerializedName("isCompleted")
-    var isCompleted: Boolean? = false
+    var isCompleted: Boolean = false
 )

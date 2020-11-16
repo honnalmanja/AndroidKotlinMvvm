@@ -2,6 +2,7 @@ package com.honnalmanja.androidkotlinmvvm.domain.repository
 
 import com.honnalmanja.androidkotlinmvvm.data.model.app.TaskLiveData
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.AddTaskRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.Tasks
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.UpdateTaskRequest
 
 interface TaskRepository {
@@ -14,7 +15,7 @@ interface TaskRepository {
 
     suspend fun addATasks(addTaskRequest: AddTaskRequest): TaskLiveData
 
-    suspend fun updateATasks(id: String?, updateTaskRequest: UpdateTaskRequest): TaskLiveData
+    suspend fun updateATasks(tasks: Tasks): TaskLiveData
 
     suspend fun deleteATask(id: String?): TaskLiveData
 

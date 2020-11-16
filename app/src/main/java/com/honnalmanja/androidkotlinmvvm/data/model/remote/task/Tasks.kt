@@ -8,14 +8,14 @@ data class Tasks(
     val taskID: String,
 
     @SerializedName("description")
-    val taskDescription: String,
+    val taskDescription: String?,
 
     @SerializedName("completed")
     var taskCompleted: Boolean = false,
 
     @SerializedName("createdAt")
-    var createdAt:Date? = null,
+    var createdAt:Date,
 
     @SerializedName("updatedAt")
-    var updatedAt:Date? = null
+    var updatedAt:Date
 )

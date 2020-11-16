@@ -38,14 +38,14 @@ interface TMServices {
             Response<Tasks>
 
     @PATCH("tasks/{id}")
-    suspend fun updateTask(@Header("Authorization") token: String?,@Path("id") id: String?,
+    suspend fun updateTask(@Header("Authorization") token: String?,@Path("id") id: String,
                    @Body updateTaskRequest: UpdateTaskRequest): Response<Tasks>
 
-    @DELETE("tasks/{id}")
+    @DELETE("tasks/{id}/")
     suspend fun deleteTask(@Header("Authorization") token: String?, @Path("id") id: String?):
             Response<Tasks>
 
-    @GET("tasks/{id}")
+    @GET("tasks/{id}/")
     suspend fun getATask(@Header("Authorization") token: String?, @Path("id") id: String?):
             Response<Tasks>
 

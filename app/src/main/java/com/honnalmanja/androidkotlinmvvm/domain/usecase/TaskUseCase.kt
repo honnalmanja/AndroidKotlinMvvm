@@ -2,6 +2,7 @@ package com.honnalmanja.androidkotlinmvvm.domain.usecase
 
 import com.honnalmanja.androidkotlinmvvm.data.model.app.TaskLiveData
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.AddTaskRequest
+import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.Tasks
 import com.honnalmanja.androidkotlinmvvm.data.model.remote.task.UpdateTaskRequest
 import com.honnalmanja.androidkotlinmvvm.domain.repository.TaskRepository
 
@@ -23,8 +24,8 @@ class TaskUseCase(private val taskRepository: TaskRepository) {
         return taskRepository.addATasks(addTaskRequest)
     }
 
-    suspend fun updateTask(id: String?,updateTaskRequest: UpdateTaskRequest): TaskLiveData {
-        return taskRepository.updateATasks(id, updateTaskRequest)
+    suspend fun updateTask(tasks: Tasks): TaskLiveData {
+        return taskRepository.updateATasks(tasks)
     }
 
     suspend fun deleteATask(id: String?): TaskLiveData {

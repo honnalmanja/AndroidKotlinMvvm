@@ -19,5 +19,7 @@ interface TaskLocalDataSource {
 
     suspend fun deleteAllTask()
 
+    suspend fun updateATask(taskID: String, isCompleted: Boolean, description: String?, createdAt: String)
+
 }
 

@@ -38,5 +38,14 @@ class TaskLocalDataSourceImpl(
         return taskDao.deleteAllTasks()
     }
 
+    override suspend fun updateATask(
+        taskID: String,
+        isCompleted: Boolean,
+        description: String?,
+        createdAt: String
+    ) {
+        taskDao.updateATask(taskID, isCompleted, description, createdAt)
+    }
+
 
 }
